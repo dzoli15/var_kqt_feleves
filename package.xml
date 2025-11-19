@@ -4,7 +4,7 @@
   <name>var_kqt_feleves</name>
   <version>1.0.0</version>
   <description>Maze pathfinder for VAR/KQT half-year project</description>
-  <maintainer email="user@todo.com">dzoli15&mayermarci65</maintainer>
+  <maintainer email="user@todo.com">dzoli15 és mayermarci65</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
