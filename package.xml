@@ -3,8 +3,8 @@
 <package format="3">
   <name>var_kqt_feleves</name>
   <version>1.0.0</version>
-  <description>Maze pathfinder for VÁR/KQT half-year project</description>
-  <maintainer email="user@todo.com">Your Name</maintainer>
+  <description>Maze pathfinder for VAR/KQT half-year project</description>
+  <maintainer email="user@todo.com">dzoli15&mayermarci65</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
