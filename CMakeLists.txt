@@ -65,4 +65,28 @@ if(BUILD_TESTING)
   ament_lint_auto_find_test_dependencies()
 endif()
 
+# Pathfinder 100x100 
+
+add_executable(pathfinder_node_100
+  src/pathfinder_node_100.cpp
+  src/maze_solver.cpp
+)
+# Fontos: A maze_solver.cpp-t itt is fel kell sorolni, mert ezt is használja!
+
+target_include_directories(pathfinder_node_100 PUBLIC include)
+
+ament_target_dependencies(pathfinder_node_100
+  rclcpp
+  nav_msgs
+  visualization_msgs
+  geometry_msgs
+  std_srvs
+  std_msgs
+)
+
+install(TARGETS
+  pathfinder_node_100
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
