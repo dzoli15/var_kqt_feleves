@@ -89,4 +89,9 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+# Launch fájlok telepítése
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
 ament_package()

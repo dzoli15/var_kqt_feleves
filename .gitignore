@@ -1,6 +1,7 @@
 build/
 install/
 log/
+.vscode/
 build_*
 install_*
 *.log
