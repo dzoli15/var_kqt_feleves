@@ -109,6 +109,11 @@ A Recursive Backtracker algoritmus rács-alapú működése (Fal-Út-Fal strukt�
 ### Algoritmusok szétváasztása
 A 100x100-as módban a rekurzív útvonalkereső (DFS) algoritmusok le vannak tiltva. Ennek oka, hogy ekkora méretnél a lehetséges útvonalak száma exponenciálisan nő, ami rekurzív hívás esetén verem túlcsordulást (Stack Overflow) és a program összeomlását okozná. A `PathfinderNode100` ezért kizárólag generálásra és térkép-publikálásra optimalizált.
 
+### Topicok
+- `/map_grid` (nav_msgs/OccupancyGrid): A labirintus bináris térképe (0: út, 100: fal).
+- `/visualization_markers` (visualization_msgs/MarkerArray): Útvonalak, Start/Cél kockák.
+- A 100-as node esetén a témák neve `_100` utótagot kap (pl. `/map_grid_100`).
+
 ```mermaid
 graph LR
     %% --- Stílusdefiníciók (Javítva: Fekete szöveg) ---
@@ -157,11 +162,5 @@ graph LR
     T3 -- OccupancyGrid --> RViz
     T4 -- MarkerArray --> RViz
 ```
-
-
-### Topicok
-- `/map_grid` (nav_msgs/OccupancyGrid): A labirintus bináris térképe (0: út, 100: fal).
-- `/visualization_markers` (visualization_msgs/MarkerArray): Útvonalak, Start/Cél kockák.
-- A 100-as node esetén a témák neve `_100` utótagot kap (pl. `/map_grid_100`).
 
 # English
