@@ -1,7 +1,12 @@
 |	[INFO] [1763366882.038912313] [pathfinder_node]: Siker! 1114 lehetséges út közül a legrövidebb: 43 lépés.
 |	Az 1114 nem azt jelenti, hogy 1114 teljesen különböző, logikus főcsapás van. Azt jelenti, hogy ha a robot minden egyes elágazásnál dönthetne, és minden kis hurkot megkerülhetne így is meg úgy is, akkor 1114 különböző kombinációban tudna eljutni a kéktől a zöldig anélkül, hogy önmagába harapna.
 
-futtatás:
+Nulladik lépés: könyvtárba navigálás:
+```bash
+cd ~/ros2_ws
+```
+
+Futtatás:
  Első lépés:		terminal 1:
  ```bash
  colcon build --packages-select var_kqt_feleves
