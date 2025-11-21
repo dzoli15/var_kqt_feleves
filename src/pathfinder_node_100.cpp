@@ -118,7 +118,7 @@ void PathfinderNode100::publish_visualizations()
     marker_pub_->publish(marker_array);
 }
 
-// --- A MAIN FÜGGVÉNY (Hogy elinduljon) ---
+// --- A MAIN FÜGGVÉNY ---
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
