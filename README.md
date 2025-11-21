@@ -81,9 +81,9 @@ Kövesse az alábbi lépéseket a csomag forráskódból történő építéséh
     ```bash
     cd ~/ros2_ws/src
     ```
-2.  **Repository klónozása:** (Szükség esetén URL sajátra cserélése)
+2.  **Repository klónozása:**
     ```bash
-    git clone git@github.com:dzoli15/var_kqt_feleves.git
+    git clone https://github.com/dzoli15/var_kqt_feleves
     ```
 3.  **Fordítás:**
     ```bash
@@ -258,9 +258,9 @@ Follow the steps below to build the package from source:
     ```bash
     cd ~/ros2_ws/src
     ```
-2.  **Clone Repository:** (Replace URL with your own if necessary)
+2.  **Clone Repository:**
     ```bash
-    git clone git@github.com:dzoli15/var_kqt_feleves.git
+    git clone https://github.com/dzoli15/var_kqt_feleves
     ```
 3.  **Build:**
     ```bash
