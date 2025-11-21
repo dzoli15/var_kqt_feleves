@@ -7,8 +7,9 @@ Nulladik lépés: könyvtárba navigálás:
 cd ~/ros2_ws
 ```
 
-Futtatás:
- Első lépés:		terminal 1:
+### Futtatás:
+
+Első lépés:		terminal 1:
  ```bash
  colcon build --packages-select var_kqt_feleves
  ```
