@@ -6,11 +6,11 @@ def generate_launch_description():
         # 1. NODE: Az EREDETI pathfinder (A* és DFS logikával)
         Node(
             package='var_kqt_feleves',
-            executable='pathfinder_node',   # Figyelj: ez a sima, nem a _100-as!
+            executable='pathfinder_node',
             name='pathfinder_node',
             output='screen',
             parameters=[
-                {'map_size': 15},          # Visszaállítva a kis méretre
+                {'map_size': 15},
                 {'automatic_mode': True}   # Automata mód (hogy ne kelljen 3. terminál a triggereléshez)
             ]
         ),
