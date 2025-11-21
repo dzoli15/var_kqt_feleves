@@ -8,7 +8,7 @@
 #include <memory>
 #include <random>
 #include <mutex>
-#include "maze_solver.hpp" // A régi solvert használjuk!
+#include "maze_solver.hpp"
 
 // ANSI Színkódok
 #define LOG_RESET "\033[0m"
