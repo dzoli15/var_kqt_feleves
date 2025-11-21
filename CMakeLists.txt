@@ -14,7 +14,7 @@ find_package(geometry_msgs REQUIRED)
 find_package(std_srvs REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# 1. LIBRARY LÉTREHOZÁSA (A kód logikája)
+# 1. LIBRARY LÉTREHOZÁSA
 add_library(pathfinder_lib
   src/pathfinder_node.cpp
   src/maze_solver.cpp
@@ -32,7 +32,7 @@ ament_target_dependencies(pathfinder_lib
   std_msgs
 )
 
-# 2. EXECUTABLE LÉTREHOZÁSA (A main)
+# 2. EXECUTABLE LÉTREHOZÁSA
 add_executable(pathfinder_node
   src/pathfinder_node_main.cpp
 )
@@ -71,7 +71,6 @@ add_executable(pathfinder_node_100
   src/pathfinder_node_100.cpp
   src/maze_solver.cpp
 )
-# Fontos: A maze_solver.cpp-t itt is fel kell sorolni, mert ezt is használja!
 
 target_include_directories(pathfinder_node_100 PUBLIC include)
 
