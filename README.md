@@ -1,104 +1,107 @@
-##### [INFO] [1763366882.038912313] [pathfinder_node]: Siker! 1114 lehetséges út közül a legrövidebb: 43 lépés.
+# Útvonaltervező (var_kqt_feleves)
 
-##### Az 1114 nem azt jelenti, hogy 1114 teljesen különböző, logikus főcsapás van. Azt jelenti, hogy ha a robot minden egyes elágazásnál dönthetne, és minden kis hurkot megkerülhetne így is meg úgy is, akkor 1114 különböző kombinációban tudna eljutni a kéktől a zöldig anélkül, hogy önmagába harapna. ______________________________________________________________________________________________________________________________________________________________________________
+Ez a ROS 2 csomag (package) automatizált labirintus-generálást és különböző útvonalkereső algoritmusok vizualizációját valósítja meg. A rendszer moduláris felépítésű, lehetővé téve mind a kisméretű (15x15) oktatási célú demonstrációt, mind a nagyméretű (100x100) teljesítménytesztelést.
 
-Nulladik lépés: könyvtárba navigálás:
+A szoftver teljes mértékben kompatibilis a **ROS 2 Humble Hawksbill** és **ROS 2 Jazzy Jalisco** rendszerekkel.
+
+## Tartalomjegyzék
+1. [Funkciók](#funkciók)
+2. [Rendszerkövetelmények](#rendszerkövetelmények)
+3. [Telepítés](#telepítés)
+4. [Használat](#használat)
+    - [Útvonaltervező Mód](#1-útvonaltervező-mód)
+    - [Nagy méretű map generálása](#2-nagy-méretű-map-generálása)
+5. [Konfiguráció és Paraméterek](#konfiguráció-és-paraméterek)
+6. [Manuális Vezérlés](#manuális-vezérlés)
+7. [Technikai Részletek](#technikai-részletek)
+
+## Funkciók
+
+* **Iteratív Labirintus Generálás:** Recursive Backtracker algoritmus stack-alapú implementációja, amely garantálja a tökéletes (körmentes) labirintust.
+* **A*** **(A-csillag) Keresés:** Heurisztikus útvonaltervezés a leggyorsabb eljutás érdekében.
+* **DFS (Depth-First Search) Keresés:** Az összes lehetséges útvonal felkutatása (csak kis térképeken aktív).
+* **Valós idejű Vizualizáció:** Integráció az RViz2-vel (OccupancyGrid térképek, útvonalak és jelölők megjelenítése).
+* **Skálázhatóság:** Külön node dedikálva a nagy méretű (100x100-as) térképek generálására.
+
+## Rendszerkövetelmények
+* **ROS 2 Disztribúció:** Humble vagy Jazzy (Desktop telepítés ajánlott az RViz miatt)
+* **Fordító:** C++17 kompatibilis fordító (g++)
+* **Build rendszer:** colcon
+
+## Telepítés
+
+Kövesse az alábbi lépéseket a csomag forráskódból történő építéséhez:
+
+1. **Workspace-be lépés:**
+   ```bash
+   cd ~/ros2_ws/src
+   ```
+2. **Repository klónozása:** (Szükség esetén URL sajátra cserélése)
+   ```bash
+   git clone git@github.com:dzoli15/var_kqt_feleves.git
+   ```
+3. **Fordítás:**
+   ```bash
+   colcon build --packages-select var_kqt_feleves
+   ```
+4. **Környezet betöltése/source-olás:**
+    ```bash
+   source install/setup.bash
+   ```
+
+## Használat
+A csomag két fő futtatási móddal rendelkezik, amelyekhez előre konfigurált launch fájlok tartoznak. Ezek elindítják a számítási node-ot és a vizualizációt (RViz2) is.
+
+### 1. Útvonaltervező mód
+Ez a mód egy 15x15-ös labirintust generál, kijelöl egy Start és Cél pontot, majd megkeresi a legrövidebb utat.
+- Jellemzők: A* keresés, Összes út keresés (DFS), Részletes vizualizáció (piros vonal)
+- Indítás:
 ```bash
-cd ~/ros2_ws
+ros2 laucnh var_kqt_feleves pathfinder_basic.launch.py
 ```
 
-## Futtatás:
-
-Első lépés:		terminal 1:
- ```bash
- colcon build --packages-select var_kqt_feleves
- ```
- Második lépés:	terminal 2:
- ```bash
- source ~/ros2_ws/install/setup.bash rviz2
- ```
- Harmadik lépés:	terminal 3:
- ```bash
- source ~/ros2_ws/install/setup.bash
- ```
-{Automatikus} Az RViz-ben 10 másodpercenként frissül a kép, a terminálban pedig pörögnek a logok.
+### 2. Nagy méretű map generálása
+Ez a mód nagy méretű labirintusok gyors generálására szolgál. Ebben a módban az útvonalkeresés le van tiltva a számítási kapacitás megőrzése érdekében.
+- Jellemzők: 100x100-as méret, OccupancyGrid vizualizáció. (Idővel legrövidebb útvonaltervezés.)
+- Indítás:
 ```bash
-ros2 run var_kqt_feleves pathfinder_node
+ros2 laucnh var_kqt_feleves map_100.launch.py
 ```
-{Manuális mód}
+
+## Konfiguráció és Paraméterek
+A node-ok működése paraméterekkel testreszabható indításkor vagy a launch fájlok szerkesztésével.
+| Paraméter	| Típus	| Alapérték	| Leírás |
+| :---: | :---: | :---: | :--- |
+| map_size	| int	| 15 / 100	| A labirintus oldalhossza cellákban. (Lásd: Technikai Részletek) |
+| automatic_mode	| bool	| true	| **true:** Időzítővel folyamatosan újragenerál. |
+|  |  |  | **false:** Várakozik a service hívásra. |
+Példa paraméter felülbírálása indításkor:
 ```bash
-ros2 run var_kqt_feleves pathfinder_node --ros-args -p automatic_mode:=false
+ros2 run var_kqt_feleves pathfinder_node_100 --ros-args -p map_size:=50 -p automatic_mode:=false
 ```
-terminal 4:
+
+## Manuális Vezérlés
+Amennyiben az `automatic_mode` paramétert `false`-ra állítja, a generálás nem indul el magától. Ilyenkor ROS 2 Service hívásokkal vezérelheti a folyamatot.
+1. Kis tervező (PathfinderNode) indítása:
 ```bash
-source ~/ros2_ws/install/setup.bash
-ros2 service call /trigger_pathfinding std_srvs/srv/Trigger "{}"
+ros2 service call /trigger_pathfinding std_srvs/srv/Trigger {}
 ```
-Negyedik lépés:	{RViz beállítás}
-- Fixed frame ->> map
-- add /map_grid
-- add /visualization_markers
+2. Nagy tervező (PathfinderNode100) indítása:
+```bash
+ros2 service call /trigger_generation_100 std_srvs/srv/Trigger {}
+```
 
+## Technikai Részletek
 
-## Log példa automatikus:
+### Méretkorrekció (páros v. páratlan)
+A Recursive Backtracker algoritmus rács-alapú működése (Fal-Út-Fal struktúra) matematikai okokból páratlan méretű rácsot igényel a zárt keretek biztosításához.
+-Ha a felhasználó **páros** számot ad meg (pl. 100), a rendszer automatikusan **+1-gyel megnöveli** a méretet (101-re).
+-Ez nem hiba, hanem a generáló algoritmus stabilitását biztosító funkció.
 
-##### [INFO] [1763367653.752137217] [pathfinder_node]: Indítás AUTOMATA módban. (10 másodpercenként újratervezés)
+### Algoritmusok szétváasztása
+A 100x100-as módban a rekurzív útvonalkereső (DFS) algoritmusok le vannak tiltva. Ennek oka, hogy ekkora méretnél a lehetséges útvonalak száma exponenciálisan nő, ami rekurzív hívás esetén verem túlcsordulást (Stack Overflow) és a program összeomlását okozná. A `PathfinderNode100` ezért kizárólag generálásra és térkép-publikálásra optimalizált.
 
-##### [INFO] [1763367653.752390557] [pathfinder_node]: Pathfinder node elindult. Térkép méret: 15 x 15
-
-##### [INFO] [1763367653.752460572] [pathfinder_node]: MultiThreadedExecutor indul...
-
-##### [INFO] [1763367663.752323627] [pathfinder_node]:  
-
-#### [INFO] [1763367663.752418070] [pathfinder_node]: ---------------------------------
-
-##### [INFO] [1763367663.752446114] [pathfinder_node]: --- Időzített újratervezés ---
-
-##### [INFO] [1763367666.189127684] [pathfinder_node]: ---------------------------------
-
-##### [INFO] [1763367663.752323627] [pathfinder_node]:  
-
-##### [INFO] [1763367666.189127684] [pathfinder_node]: ---------------------------------
-
-##### [INFO] [1763367666.189222838] [pathfinder_node]: --- Útvonal Tervezés LOG ---
-
-##### [INFO] [1763367666.189262094] [pathfinder_node]: Generálás és A* keresési idő: 2436.67 ms
-
-##### [INFO] [1763367666.189299296] [pathfinder_node]: Kiválasztott pontok: Start(0, 17), Cél(20, 1)
-
-##### [INFO] [1763367666.189351086] [pathfinder_node]: Siker! 16952 lehetséges út közül a legrövidebb: 37 lépés.
-
-##### [INFO] [1763367666.189369041] [pathfinder_node]: ---------------------------------
-
-
-## Log példa manuális:
-
-##### [INFO] [1763367886.253602811] [pathfinder_node]: Indítás MANUÁLIS módban.
-
-##### [INFO] [1763367886.253815473] [pathfinder_node]: Hívd a '/trigger_pathfinding' szolgáltatást a tervezéshez.
-
-##### [INFO] [1763367886.253848757] [pathfinder_node]: Pathfinder node elindult. Térkép méret: 15 x 15
-
-##### [INFO] [1763367886.253896419] [pathfinder_node]: MultiThreadedExecutor indul...
-
-##### [INFO] [1763367663.752323627] [pathfinder_node]:
-
-##### [INFO] [1763366881.429620688] [pathfinder_node]: ---------------------------------
-
-##### [INFO] [1763366881.429681956] [pathfinder_node]: --- Manuális tervezés kérése ---
-
-##### [INFO] [1763366882.038769527] [pathfinder_node]: ---------------------------------
-
-##### [INFO] [1763367663.752323627] [pathfinder_node]:  
-
-##### [INFO] [1763367666.189127684] [pathfinder_node]: ---------------------------------
-
-##### [INFO] [1763366882.038854291] [pathfinder_node]: --- Útvonal Tervezés LOG ---
-
-##### [INFO] [1763366882.038861555] [pathfinder_node]: Generálás és A* keresési idő: 609.02 ms
-
-##### [INFO] [1763366882.038870542] [pathfinder_node]: Kiválasztott pontok: Start(7, 0), Cél(20, 9)
-
-##### [INFO] [1763366882.038912313] [pathfinder_node]: Siker! 1114 lehetséges út közül a legrövidebb: 43 lépés.
-
-##### [INFO] [1763366882.038926220] [pathfinder_node]: ---------------------------------
+### Topicok
+- `/map_grid` (nav_msgs/OccupancyGrid): A labirintus bináris térképe (0: út, 100: fal).
+- `/visualization_markers` (visualization_msgs/MarkerArray): Útvonalak, Start/Cél kockák.
+- A 100-as node esetén a témák neve `_100` utótagot kap (pl. `/map_grid_100`).
