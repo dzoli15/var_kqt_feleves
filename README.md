@@ -21,10 +21,20 @@ A szoftver teljes mértékben kompatibilis a **ROS 2 Humble Hawksbill** és **RO
 ## Funkciók
 
 ### Képernyőképek
-Ez jelenleg placeholder, 15x15 útvonallal kerül ide
 <p align="center">
-  <img src="images/101x101_grid.png" alt="Működés közben" width="65%">
+  <img src="images/log.png" alt="Log példa" width="65%">
 </p>
+Várható log
+
+<p align="center">
+  <img src="images/automatic_generate.png" alt="Működés közben (automata mód)" width="65%">
+</p>
+Az automatikus generálás eredménye
+
+<p align="center">
+  <img src="images/101x101_grid.png" alt="Működés közben (100x100-as bemutató)" width="65%">
+</p>
+100x100-as bemutató generálás
 
 * **Iteratív Labirintus Generálás:** Recursive Backtracker algoritmus stack-alapú implementációja, amely garantálja a tökéletes (körmentes) labirintust.
 * **A*** **(A-csillag) Keresés:** Heurisztikus útvonaltervezés a leggyorsabb eljutás érdekében.
@@ -188,10 +198,20 @@ The software is fully compatible with **ROS 2 Humble Hawksbill** and **ROS 2 Jaz
 ## Features
 
 ### Screenshots
-This is currently a placeholder; a 15x15 path will be placed here.
 <p align="center">
-  <img src="images/101x101_grid.png" alt="Working Demo" width="65%">
+  <img src="images/log.png" alt="Log példa" width="65%">
 </p>
+Expected log
+
+<p align="center">
+  <img src="images/automatic_generate.png" alt="Működés közben (automata mód)" width="65%">
+</p>
+An image from the generated maze (automatic mode) with the path.
+
+<p align="center">
+  <img src="images/101x101_grid.png" alt="Működés közben (100x100-as bemutató)" width="65%">
+</p>
+An image from the generated maze (100x100 size)
 
 * **Iterative Maze Generation:** Stack-based implementation of the Recursive Backtracker algorithm, guaranteeing a perfect (loop-free) maze.
 * **A* (A-Star) Search:** Heuristic pathfinding for the fastest route.
