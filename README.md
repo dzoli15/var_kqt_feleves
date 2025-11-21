@@ -7,7 +7,7 @@ Nulladik lépés: könyvtárba navigálás:
 cd ~/ros2_ws
 ```
 
-### Futtatás:
+## Futtatás:
 
 Első lépés:		terminal 1:
  ```bash
