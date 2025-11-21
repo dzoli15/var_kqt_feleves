@@ -1,3 +1,5 @@
+[HU](#magyar) [EN](#english)
+# Magyar
 # Útvonaltervező (var_kqt_feleves)
 
 Ez a ROS 2 csomag (package) automatizált labirintus-generálást és különböző útvonalkereső algoritmusok vizualizációját valósítja meg. A rendszer moduláris felépítésű, lehetővé téve mind a kisméretű (15x15) oktatási célú demonstrációt, mind a nagyméretű (100x100) teljesítménytesztelést.
@@ -111,3 +113,5 @@ A 100x100-as módban a rekurzív útvonalkereső (DFS) algoritmusok le vannak ti
 - `/map_grid` (nav_msgs/OccupancyGrid): A labirintus bináris térképe (0: út, 100: fal).
 - `/visualization_markers` (visualization_msgs/MarkerArray): Útvonalak, Start/Cél kockák.
 - A 100-as node esetén a témák neve `_100` utótagot kap (pl. `/map_grid_100`).
+
+# English
