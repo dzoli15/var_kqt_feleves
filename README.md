@@ -17,6 +17,12 @@ A szoftver teljes mértékben kompatibilis a **ROS 2 Humble Hawksbill** és **RO
 
 ## Funkciók
 
+## Képernyőképek
+Ez jelenleg placeholder, 15x15 útvonallal kerül ide
+<p align="center">
+  <img src="images/101x101_grid.png" alt="Működés közben" width="65%">
+</p>
+
 * **Iteratív Labirintus Generálás:** Recursive Backtracker algoritmus stack-alapú implementációja, amely garantálja a tökéletes (körmentes) labirintust.
 * **A*** **(A-csillag) Keresés:** Heurisztikus útvonaltervezés a leggyorsabb eljutás érdekében.
 * **DFS (Depth-First Search) Keresés:** Az összes lehetséges útvonal felkutatása (csak kis térképeken aktív).
