@@ -104,7 +104,7 @@ std::pair<bool, std::string> PathfinderNode::run_pathfinding_cycle()
     std::string result_message;
     bool success = false;
 
-    // VISSZAÁLLÍTVA: Most már az all_paths-t ellenőrizzük
+    // Az all_paths-t ellenőrizzük
     if (!all_paths.empty()) {
         success = true;
         // Színes log kimenet
@@ -124,7 +124,7 @@ std::pair<bool, std::string> PathfinderNode::run_pathfinding_cycle()
 
     RCLCPP_INFO(this->get_logger(), "---------------------------------");
 
-    // 6. JAVÍTVA: Vizualizáció (CSAK a piros út)
+    // 6. Vizualizáció (CSAK a piros út)
     publish_visualizations(shortest_path, start_point, end_point);
 
     return {success, result_message};
