@@ -11,7 +11,7 @@
 **Automatizált labirintus-generálás és útvonalkereső algoritmusok vizualizációja.**
 
 <h1>
-<a href="#magyar">🇭🇺</a> &nbsp;&nbsp; • &nbsp;&nbsp; <a href="#english">🇬🇧</a>
+<a href="#magyar">HU</a> &nbsp;&nbsp; • &nbsp;&nbsp; <a href="#english">EN</a>
 </h1>
 
 ---
@@ -19,7 +19,7 @@
 
 <a name="magyar"></a>
 
-# 🇭🇺 Magyar
+# HU Magyar
 
 Ez a ROS 2 csomag (package) automatizált labirintus-generálást és különböző útvonalkereső algoritmusok vizualizációját valósítja meg. A rendszer moduláris felépítésű, lehetővé téve mind a kisméretű (15x15) oktatási célú demonstrációt, mind a nagyméretű (100x100) teljesítménytesztelést.
 
@@ -196,7 +196,7 @@ graph LR
 
 <a name="english"></a>
 
-# 🇬🇧 English
+# EN English
 
 This ROS 2 package implements automated maze generation and visualization of various pathfinding algorithms. The system is modular, allowing for both small-scale (15x15) educational demonstrations and large-scale (100x100) performance testing.
 
