@@ -1,3 +1,5 @@
+#### Készítette: Varga Zoltán KQTUUH, Mayer Márton IFRTOT
+
 <div align="center">
 
 # 🗺️ Útvonaltervező & Labirintus Generátor
