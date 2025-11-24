@@ -46,12 +46,12 @@ Ez a ROS 2 csomag (package) automatizált labirintus-generálást és különbö
 <em>📷 Várható log kimenet színes formázással</em>
 <br><br>
 
-<img src="images/automatic_generate.png" width="60%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+<img src="images/automatic_generate.png" width="45%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
 <br>
 <em>📷 Automata generálás működés közben</em>
 <br><br>
 
-<img src="images/100_utvonal_maze.png" width="60%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+<img src="images/100_utvonal_maze.png" width="45%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
 <br>
 <em>📷 100x100-as útvonal generálása</em>
 
