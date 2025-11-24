@@ -223,16 +223,17 @@ This ROS 2 package implements automated maze generation and visualization of var
 <em>📷 Expected Log Output</em>
 <br><br>
 
-<img src="images/automatic_generate.png" width="80%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+<img src="images/automatic_generate.png" width="45%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
 <br>
 <em>📷 Auto Generation in Action</em>
 <br><br>
 
-<img src="images/101x101_grid.png" width="80%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
+<img src="images/100_utvonal_maze.png" width="45%" style="border-radius: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);">
 <br>
 <em>📷 100x100 "Stress Test" Maze</em>
 
 </div>
+
 
 ### ✨ Key Features
 * 🧩 **Iterative Maze Generation:** Stack-based implementation of the *Recursive Backtracker* algorithm, guaranteeing a perfect (loop-free) maze.
