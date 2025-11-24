@@ -139,7 +139,7 @@ ros2 service call /trigger_generation_100 std_srvs/srv/Trigger {}
 
 **Példa paraméter felülbírálása indításkor:**
 ```bash
-ros2 run var_kqt_feleves pathfinder_node_100 --ros-args -p map_size:=50 -p automatic_mode:=false
+ros2 run var_kqt_feleves pathfinder_node_100 --ros-args -p map_size:=100 -p automatic_mode:=false
 ```
 
 ---
@@ -316,7 +316,7 @@ ros2 service call /trigger_generation_100 std_srvs/srv/Trigger {}
 
 **Example of overriding parameters at startup:**
 ```bash
-ros2 run var_kqt_feleves pathfinder_node_100 --ros-args -p map_size:=50 -p automatic_mode:=false
+ros2 run var_kqt_feleves pathfinder_node_100 --ros-args -p map_size:=100 -p automatic_mode:=false
 ```
 
 ---
