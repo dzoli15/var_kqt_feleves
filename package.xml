@@ -3,7 +3,7 @@
 <package format="3">
   <name>var_kqt_feleves</name>
   <version>1.0.0</version>
-  <description>Maze pathfinder for VAR/KQT half-year project</description>
+  <description>Maze generator and pathfinder for VAR_KQT_feleves project</description>
   <maintainer email="user@todo.com">dzoli15 és mayermarci65</maintainer>
   <license>MIT</license>
 
