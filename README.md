@@ -267,7 +267,6 @@ Follow the steps below to build the package from source:
     ```
 3.  **Build:**
     ```bash
-    cd ~/ros2_ws
     colcon build --packages-select var_kqt_feleves
     ```
 4.  **Load Environment:**
