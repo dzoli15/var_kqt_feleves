@@ -89,7 +89,6 @@ Kövesse az alábbi lépéseket a csomag forráskódból történő építéséh
     ```
 3.  **Fordítás:**
     ```bash
-    cd ~/ros2_ws
     colcon build --packages-select var_kqt_feleves
     ```
 4.  **Környezet betöltése:**
